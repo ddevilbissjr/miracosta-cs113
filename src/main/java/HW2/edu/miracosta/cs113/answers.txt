@@ -1,0 +1,20 @@
+Before implementation:
+
+How often do you get a solution in fewer than 20 guesses? Does this change depending on the theory you test (1, 2, 3)?
+
+    - Theory #1 and #2: It took me quite a few tries to get a result within 20 tries. Since these are static, and trying over and over.
+    - Theory #3: Even though its random, its much more consistent with lower results but still nowhere near where we need to be.
+
+What is good or bad about this strategy?
+
+    - The problem with this strategy is that we already know what the answers are, so just adding a single digit up from every try will result in the right answer. There wasn't any special algorithm we had to come up with.
+
+After implementation:
+
+How often do you get a solution in fewer than 20 guesses? Does this change depending on the theory you test (1, 2, 3)?
+
+    - All theories came back before 20 and decently satisfied with the algorithm I have come up with.
+
+What is good or bad about this strategy?
+
+    - It only repeats the test if the current guess for each item is incorrect, if so, increment.

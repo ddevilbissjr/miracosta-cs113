@@ -1,0 +1,48 @@
+–Determine how many times the output statement is displayed in each of the following fragments.
+Indicate whether the algorithm is O(n) or O(n^2)
+
+a)for (int i = 0; i < n; i++) {
+   for (int j = 0; j < n; j++) {
+  System.out.println(i + “ “ + j);
+  }
+}
+
+O(n^2)
+Infinite
+
+b)for (int i = 0; i < n; i++) {
+   for (int j = 0; j < 2; j++) {
+  System.out.println(i + “ “ + j);
+  }
+}
+
+O(n)
+2
+
+c)for (int i = 0; i < n; i++) {
+   for (int j = n-1; j >= i; j--) {
+  System.out.println(i + “ “ + j);
+  }
+}
+
+
+
+a)for (int i = 0; i < n; i++) {
+   for (int j = 0; j < n; j++) {
+  System.out.println(i + “ “ + j);
+  }
+}
+
+See book for b, c, and d…
+
+  Don’t make .java files,  just .txt files, and comment as in slide example.
+  Try to come up with T(n), c, and n values. Do not worry about terminology. c is the constant in the expression below.
+
+This could an equation like an example would be 4n^2 + 3n + 2 or 4n + 1 . First is an example of O(n^2) and second one is O(n)
+
+Programming 1
+–Write a program that compares the values of y1 and y2 in the following expressions for values of n up to 100 in increments of 10.  Does the result surprise you?
+
+y1 = 100 * n + 10
+y2 = 5 * n * n + 2
+–Print in a formatted table (no need to add lines, just use printf)
