@@ -5,6 +5,19 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
