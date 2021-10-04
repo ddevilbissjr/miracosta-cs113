@@ -1,4 +1,4 @@
-package HW4;
+package HW4.edu.miracosta.cs113;
 
 import java.util.*;
 
@@ -169,11 +169,11 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E> {  // Data fi
                 lastItemReturned = nextItem;
                 nextItem = nextItem.next;
                 index++;
+                return lastItemReturned.data;
             } else {
                 System.err.println("No next item!");
+                return null;
             }
-
-            return lastItemReturned.data; // Fill Here
         }
 
         public E previous() {
@@ -183,10 +183,13 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E> {  // Data fi
                 } else {
                     nextItem = tail;
                 }
+                lastItemReturned = nextItem;
+                index--;
+                return lastItemReturned.data; // Fill Here
+            } else {
+                System.err.println("Cannot find previous!");
+                return null;
             }
-            lastItemReturned = nextItem;
-            index--;
-            return lastItemReturned.data; // Fill Here
         }
 
         public void add(E obj) {
