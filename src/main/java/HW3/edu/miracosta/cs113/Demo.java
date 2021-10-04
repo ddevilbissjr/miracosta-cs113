@@ -5,15 +5,17 @@ import java.util.Scanner;
 
 public class Demo {
 
-    private static Scanner keyboard = new Scanner(System.in);
+    private static Scanner keyboard;
 
-    public static void main (String[] args) {
+    /*public static void main (String[] args) {
         Polynomial first = new Polynomial();
         Polynomial second = new Polynomial();
 
+        first.addTerm(new Term(4, 10));
         first.addTerm(new Term(3, 2));
         first.addTerm(new Term(5, 1));
         first.addTerm(new Term(6, 0));
+        first.addTerm(new Term(13, 26));
 
         System.out.println(first);
 
@@ -24,64 +26,70 @@ public class Demo {
         System.out.println(second);
 
         first.add(second);
-    }
+    }*/
 
-    //private static Scanner keyboard;
-
-    /*public static void main(String[] args) {
-        Polynomial firstPoly = null, secondPoly = null;
-        int userSelection = 0;
+    public static void main(String[] args) {
+        Polynomial firstPoly = new Polynomial(), secondPoly = new Polynomial();
+        boolean finished = false;
         keyboard = new Scanner(System.in);
 
         System.out.println("Welcome to the poly program");
 
-        while (userSelection != -1) {
+        while (!finished) {
             System.out.println("Please make a selection");
             System.out.println("1: Edit first polynomial");
             System.out.println("2: Edit second polynomial");
             System.out.println("3: Add your polynomials together");
-            System.out.println("-1: Exit program");
+            System.out.println("0: Exit program");
 
-            userSelection = Integer.parseInt(keyboard.next());
-
-            if (userSelection == 1) {
-                editPolynomial(firstPoly);
-            } else if (userSelection == 2) {
-                editPolynomial(secondPoly);
-            } else if (userSelection == 3) {
-                System.out.println("Your polynomials added together equal ");
-            } else if (userSelection == -1) {
-                System.out.println("Goodbye.");
-                System.exit(0);
+            switch (Integer.parseInt(keyboard.next())) {
+                case 1:
+                    editPolynomial(firstPoly);
+                    break;
+                case 2:
+                    editPolynomial(secondPoly);
+                    break;
+                case 3:
+                    System.out.print("Your polynomials added together equal ");
+                    firstPoly.add(secondPoly);
+                    finished = true;
+                    break;
+                case 0:
+                    System.out.println("Goodbye.");
+                    finished = true;
+                    break;
+                default:
+                    System.out.println("Invalid command. Try again.");
             }
+            break;
         }
-    } */
+        System.exit(0);
+    }
 
     public static Polynomial editPolynomial (Polynomial orig) {
         boolean isDone = false;
 
         while (!isDone) {
-            System.out.println("1: Create polynomial");
-            System.out.println("2: Add term");
-            System.out.println("3: Clear polynomial");
-            System.out.println("-1: Exit program");
+            System.out.println("1: Add term");
+            System.out.println("2: Clear polynomial");
+            System.out.println("0: Main menu");
 
-            switch(keyboard.nextInt()) {
+            switch(Integer.parseInt(keyboard.next())) {
                 case 1:
-                    orig = new Polynomial();
-                    break;
-                case 2:
                     System.out.println("Format: [coeff]x^[exp]\n" +
                                         "If no [exp], use 1.\n" +
                                         "If no [exp] and x, use 0.");
                     LinkedList<Integer> nums = convertToPoly(keyboard.next());
                     orig.addTerm(new Term(nums.get(0), nums.get(1)));
                     break;
-                case 3:
+                case 2:
                     orig.clear();
                     break;
-                case -1:
+                case 0:
                     isDone = true;
+                    break;
+                default:
+                    System.out.println("Unknown command. Try again.");
                     break;
             }
 

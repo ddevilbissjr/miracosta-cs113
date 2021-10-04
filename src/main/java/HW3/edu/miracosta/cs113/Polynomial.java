@@ -33,14 +33,14 @@ public class Polynomial {
         } else {
             int secondTermExp = secondTerm.getExponent();
             while (true) {
+                Optional<Term> equalToSecond = terms.stream().filter(o -> o.getExponent() == secondTermExp).findFirst();
+                if (equalToSecond.isPresent()) {
+                    equalToSecond.get().addCoefficient(secondTerm.getCoefficient());
+                    break;
+                }
+
                 if (secondTermExp > terms.getLast().getExponent() && secondTermExp < terms.getFirst().getExponent()) {
                     int min = terms.getLast().getExponent();
-
-                    Optional<Term> equalToSecond = terms.stream().filter(o -> o.getExponent() == secondTermExp).findFirst();
-                    if (equalToSecond.isPresent()) {
-                        equalToSecond.get().addCoefficient(secondTerm.getCoefficient());
-                        break;
-                    }
 
                     for (int i = terms.size(); i > terms.size(); i--) { // checking min
                         int currentTermExp = terms.get(i).getExponent();
