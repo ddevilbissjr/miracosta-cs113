@@ -55,4 +55,9 @@ public class Term implements Comparable {
     public Term clone () {
         return new Term(this.getCoefficient(), this.getExponent());
     }
+
+    @Override
+    public String toString () {
+        return coefficient + "x^" + exponent;
+    }
 }

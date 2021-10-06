@@ -18,13 +18,13 @@ public class Polynomial {
     }
 
     public void add(Polynomial poly) {
-        Polynomial copy = new Polynomial(this);
+        Polynomial original = new Polynomial(this);
 
         for(Term t : poly.getTerms()) {
-            copy.addTerm(t);
+            this.addTerm(t);
         }
 
-        System.out.println(this + " + " + poly + " = " + copy);
+        System.out.println(original + " + " + poly + " = " + this);
     }
 
     public void addTerm(Term secondTerm) {
@@ -40,20 +40,18 @@ public class Polynomial {
                 }
 
                 if (secondTermExp > terms.getLast().getExponent() && secondTermExp < terms.getFirst().getExponent()) {
-                    int min = terms.getLast().getExponent();
+                    Term minimum = terms.getLast();
 
                     for (int i = terms.size(); i > terms.size(); i--) { // checking min
-                        int currentTermExp = terms.get(i).getExponent();
+                        Term currentTermCheck = terms.get(i);
 
-                        if (secondTermExp > currentTermExp) { // if the term's exp were adding is greater than our current min, set that as our new min.
-                            min = currentTermExp;
+                        if (secondTermExp > currentTermCheck.getExponent()) { // if the term's exp were adding is greater than our current min, set that as our new min.
+                            minimum = currentTermCheck;
                         }
                     }
 
-                    if (min > secondTermExp) { // if the term's exp were adding is greater than all current terms, add to list.
-                        terms.add(min, secondTerm);
-                        break;
-                    }
+                    terms.add(terms.indexOf(minimum), secondTerm);
+                    break;
                 }
 
                 if (secondTermExp < terms.getLast().getExponent()) {
@@ -65,7 +63,6 @@ public class Polynomial {
                     terms.add(0, secondTerm);
                     break;
                 }
-
             }
         }
     }
@@ -96,6 +93,6 @@ public class Polynomial {
         for(Term t : terms) {
             output += (t.getCoefficient() > 0 && terms.getFirst() != t ? "+" : "") + t.getCoefficient() + "x^" + t.getExponent();
         }
-        return output;
+        return (output.equals("")) ? "0" : output;
     }
 }
