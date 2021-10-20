@@ -1,6 +1,11 @@
 package HW5_StackQueues;
 
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+
 public class ArrayListStack<E> implements StackInterface<E> {
+
+    private ArrayList<E> arr = new ArrayList<>();
 
     /**
      * Returns true if the stack is empty; otherwise, returns false
@@ -9,7 +14,7 @@ public class ArrayListStack<E> implements StackInterface<E> {
      */
     @Override
     public boolean empty() {
-        return false;
+        return arr.size() == 0;
     }
 
     /**
@@ -19,7 +24,10 @@ public class ArrayListStack<E> implements StackInterface<E> {
      */
     @Override
     public E peek() {
-        return null;
+        if(arr.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return arr.get(arr.size() - 1);
     }
 
     /**
@@ -29,7 +37,10 @@ public class ArrayListStack<E> implements StackInterface<E> {
      */
     @Override
     public E pop() {
-        return null;
+        if(arr.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return arr.remove(arr.size() - 1);
     }
 
     /**
@@ -40,6 +51,7 @@ public class ArrayListStack<E> implements StackInterface<E> {
      */
     @Override
     public E push(E obj) {
-        return null;
+        arr.add(obj);
+        return arr.get(arr.size() - 1);
     }
 }
