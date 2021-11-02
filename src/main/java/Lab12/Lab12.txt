@@ -1,0 +1,13 @@
+1.
+    a. It depends on how many elements would be in this map in my opinion, but I'd use Title and Year or Title and ISBN
+    b. Team and name, organize by group, specify by name.
+    c. Computer Manufacturer and Model Number, same thing, organize by manufacturer and label their specific model number.
+    d. Department and Course Title
+2.
+    a. Integer for lineNumber, and String for line
+3.
+    a.  lines = index.get("this");  // lines = "this"
+        lines = index.get("that");  // lines = null
+        lines = index.get("line");  // lines = ["this line is first", "and line 2 is second", "followed by the third line"]
+        lines.add(4);               // add a new blank Integer element
+        index.put("is", lines);     // add keyword "is" with the Integer List <lines>.

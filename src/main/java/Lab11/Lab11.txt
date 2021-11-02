@@ -1,0 +1,37 @@
+1.
+    Set<String> s = new HashSet<String>();
+    s.add("hello");                         s = ["hello"]
+    s.add("bye");                           s = ["hello", "bye"]
+    s.addAll(s);                            s = ["hello", "hello", "bye", "bye"]
+
+    Set<String> t = new TreeSet<String>();
+    t.add("123");                           t = ["123"]
+    s.addAll(t);                            t = ["123", "123"]
+    System.out.println(s.containsAll(t));   true
+    System.out.println(t.containsAll(s));   false
+    System.out.println(s.contains("ace"));  false
+    System.out.println(s.contains("123");   true
+    s.retainAll(t);                         s = ["123"]
+    System.out.println(s.contains("123");   true
+    t.retainAll(s);                         t = ["123"]
+    System.out.println(t.contains("123");   true
+
+2.
+    1.
+        a. c = (a U b)  - Belong either to a OR b, OR BOTH
+        b. c = (a A b)  - Belong to BOTH a AND b
+        c. c = (a - b)  - Belong to A but NOT to B
+        d. if (a < b) { - IF every element contains set A in subset B
+            c = a;
+           } else {
+            c = b;
+           }
+    2.
+        a.  @Override
+            public String toString (
+                String sum;
+                for (Set s : set) {
+                    sum += s
+                }
+                return sum;
+            }
