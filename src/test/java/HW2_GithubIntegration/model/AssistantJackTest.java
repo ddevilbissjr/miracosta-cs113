@@ -14,13 +14,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class AssistantJackTest {
-    /**
-     *
-     *  TESTING:
-     *  -   checkAnswer for set 1 (1, 1, 1)
-     *  -   checkAnswer for set 2 (6, 10, 6)
-     *
-     */
 
     @Test
     public void testCheckAnswerSet1() {

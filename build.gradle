@@ -1,15 +1,27 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
 
-group 'org.example'
-version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
+// Define source sets which deviate from the default setup expected in Gradle projects
+sourceSets {
+    main {
+        java {
+            srcDir 'main'
+        }
+    }
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
+}
+
+// Define external dependencies using Maven
 repositories {
     mavenCentral()
 }
 
+// Access JUnit testing library
 dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'

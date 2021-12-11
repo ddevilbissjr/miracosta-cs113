@@ -7,12 +7,12 @@ public class Polynomial {
 
     private LinkedList<Term> terms = new LinkedList<Term>();
 
-    public Polynomial () {
+    public Polynomial() {
 
     }
 
     public Polynomial(Polynomial poly) {
-        for(Term t : poly.getTerms()) {
+        for (Term t : poly.getTerms()) {
             terms.add(new Term(t.getCoefficient(), t.getExponent()));
         }
     }
@@ -20,7 +20,7 @@ public class Polynomial {
     public void add(Polynomial poly) {
         Polynomial original = new Polynomial(this);
 
-        for(Term t : poly.getTerms()) {
+        for (Term t : poly.getTerms()) {
             this.addTerm(t);
         }
 
@@ -67,7 +67,7 @@ public class Polynomial {
         }
     }
 
-    public void clear () {
+    public void clear() {
         terms.clear();
     }
 
@@ -88,9 +88,9 @@ public class Polynomial {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         String output = "";
-        for(Term t : terms) {
+        for (Term t : terms) {
             output += (t.getCoefficient() > 0 && terms.getFirst() != t ? "+" : "") + t.getCoefficient() + "x^" + t.getExponent();
         }
         return (output.equals("")) ? "0" : output;

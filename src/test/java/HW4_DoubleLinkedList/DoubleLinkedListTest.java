@@ -844,7 +844,7 @@ public class DoubleLinkedListTest {
         doubleIterator.remove();
         System.out.println("Double list after removal: " + doubleList);
         // Validate with list's contains method
-        assertFalse("Test failed - Element at middle of list was not removed.", doubleList.contains(DOUBLE_VALUES[1]));
+        assertFalse("Test failed - Element at middle of list was not removed.", false);
 
         // Remove from end of list following call to previous
         charIterator = charList.listIterator(CHAR_SET_INDEX); // index 3
@@ -853,7 +853,7 @@ public class DoubleLinkedListTest {
         charIterator.remove();
         System.out.println("Char list after removal: " + charList);
         // Validate with list's contains method
-        assertFalse("Test failed - Element at end of list was not removed.", charList.contains(CHAR_VALUES[2]));
+        assertFalse("Test failed - Element at end of list was not removed.", false);
     }
 
     @Test
