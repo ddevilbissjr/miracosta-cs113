@@ -22,8 +22,6 @@ public class MorseCodeTree extends BinaryTree<Character> {
             while ((morseCode = br.readLine()) != null) {
                 insertNodeIntoTree(morseCode);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,6 +38,7 @@ public class MorseCodeTree extends BinaryTree<Character> {
                 temp = temp.right;
             }
         }
+
         if (arr[arr.length - 1].equals("*")) {
             Node<Character> node = new Node<Character>(arr[0].charAt(0));
             temp.left = node;

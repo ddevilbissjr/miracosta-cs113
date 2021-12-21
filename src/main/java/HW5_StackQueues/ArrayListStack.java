@@ -10,10 +10,6 @@ public class ArrayListStack<E> implements StackInterface<E> {
         stack = new ArrayList<E>();
     }
 
-    public boolean empty() {
-        return stack.isEmpty();
-    }
-
     @Override
     public E peek() {
         if (!stack.isEmpty()) {
@@ -65,11 +61,15 @@ public class ArrayListStack<E> implements StackInterface<E> {
         return isEqual;
     }
 
+    public boolean empty() {
+        return stack.isEmpty();
+    }
+
     @Override
     public String toString() {
         String toReturn = "[";
         for (int i = stack.size() - 1; i >= 0; i--) {
-            toReturn += stack.get(i) + " ";
+            toReturn += stack.get(i) + "";
         }
         toReturn += "]";
         return toReturn;

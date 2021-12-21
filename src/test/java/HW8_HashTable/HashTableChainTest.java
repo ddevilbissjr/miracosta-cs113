@@ -182,7 +182,7 @@ public class HashTableChainTest {
         Map<String, Integer> other = new Hashtable<String, Integer>();
         other.put("one", 1);
 
-        assertEquals(true, true);
+        assertEquals(other.hashCode(), hashTable.hashCode());
     }
 
     @Test

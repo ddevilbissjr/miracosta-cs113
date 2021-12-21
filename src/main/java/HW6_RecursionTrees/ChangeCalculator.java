@@ -20,7 +20,7 @@ public class ChangeCalculator {
     static ArrayList<Coin> combinations = new ArrayList<Coin>();
 
     public static void main (String[] args) {
-        printCombinationsToFile(80);
+        printCombinationsToFile(75);
     }
 
     /**

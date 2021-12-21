@@ -20,13 +20,13 @@ public class CircularArrayQueue<E> implements Queue<E> {
     @Override
     public boolean add(E e) {
         if (initialCapacity == size) {
-            throw new IllegalStateException();
-        } else {
-            size++;
-            rear = (rear + 1) % initialCapacity;
-            queue.add(rear, e);
-            return true;
+            reallocate();
         }
+
+        size++;
+        rear = (rear + 1) % initialCapacity;
+        queue.add(rear, e);
+        return true;
     }
 
     @Override

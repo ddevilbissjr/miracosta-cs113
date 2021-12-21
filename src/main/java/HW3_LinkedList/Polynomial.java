@@ -28,6 +28,10 @@ public class Polynomial {
     }
 
     public void addTerm(Term secondTerm) {
+        if(secondTerm.getCoefficient() == 0) {
+            return;
+        }
+
         if (terms.size() == 0) {
             terms.add(secondTerm);
         } else {

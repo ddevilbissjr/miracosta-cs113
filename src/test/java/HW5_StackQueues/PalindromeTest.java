@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import java.util.LinkedList;
+import java.util.Locale;
 
 /**
  * PalindromeTest : a test class for isPalindrome, a method intended to utilize stacks to evaluate if a given
@@ -41,12 +43,35 @@ public class PalindromeTest {
      * @return returns true if a palindrome (ignoring whitespace and case sensitivity), false otherwise
      */
     private boolean isPalindrome(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException();
+        }
 
-        // TODO:
-        // Implement this method body using your ArrayListStack. Be mindful of your algorithm!
-        return false;
+        s = s.replaceAll("\\s+", "");
+        s = s.toLowerCase(Locale.ROOT);
 
-    } // End of method isPalindrome
+        LinkedList<Character> orig = new LinkedList<>();
+        ArrayListStack<Character> stack1 = new ArrayListStack<>();
+        ArrayListStack<Character> stack2 = new ArrayListStack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            orig.push(s.charAt(i));
+        }
+
+        if (s.length() % 2 != 0) {
+            orig.remove(s.length()/2);
+        }
+
+        for (int i = 0; i < (orig.size()/2); i++) {
+            stack1.push(orig.get(i));
+        }
+
+        for (int i = orig.size() - 1; i > (orig.size()/2) - 1; i--) {
+            stack2.push(orig.get(i));
+        }
+
+        return (stack1.equals(stack2));
+    }
 
     @Test
     public void testErrors() {
