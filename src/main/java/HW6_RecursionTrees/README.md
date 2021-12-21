@@ -60,13 +60,13 @@ The two methods will be tested using 5 cent increments between 5 cents and 30 ce
 
 ![Image of tree for problem 3A](doc/problemImages/problem3A.png)
 
-`insert answers here`
+`No. Yes. No.`
 
 ![Image of tree for problem 3B](doc/problemImages/problem3B.png)
 
-`insert answers here`
+`No. Yes. Yes.`
 
-4. For the binary trees shown below, indicat whether each tree is full, perfect, complete, or none of the above (note that a tree could be more than one of these!)
+4. For the binary trees shown below, indicate whether each tree is full, perfect, complete, or none of the above (note that a tree could be more than one of these!)
 
 ![Image of tree for problem 4A](doc/problemImages/problem4A.png)
 

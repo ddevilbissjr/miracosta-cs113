@@ -111,11 +111,7 @@ public class DoubleLinkedList<E> implements List<E> {
         }
 
         list.remove();
-        if (newSize == (size() - 1)) {
-            return false;
-        } else {
-            return true;
-        }
+        return newSize != (size() - 1);
     }
 
     @Override
@@ -145,10 +141,7 @@ public class DoubleLinkedList<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
-        if (indexOf(o) > 0) {
-            return true;
-        }
-        return false;
+        return indexOf(o) > 0;
     }
 
     @Override
@@ -225,6 +218,25 @@ public class DoubleLinkedList<E> implements List<E> {
             position = position.next;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        String str = "[";
+        Node position = head;
+
+        if (head == null) {
+            str += "";
+        } else {
+            while (position != null) {
+                str += position.data;
+                position = position.next;
+                str += ", ";
+            }
+            str = str.substring(0, str.length() - 2);
+        }
+        str += "]";
+        return str;
     }
 
     private static class Node<E> {
@@ -333,11 +345,7 @@ public class DoubleLinkedList<E> implements List<E> {
                 return false;
             } else if (next == null) {
                 return true;
-            } else if (next.previous == null) {
-                return false;
-            } else {
-                return true;
-            }
+            } else return next.previous != null;
         }
 
         @Override
@@ -404,27 +412,6 @@ public class DoubleLinkedList<E> implements List<E> {
             }
             Node<E> newNode = new Node<E>(e);
             last.data = newNode.data;
-        }
-
-        @Override
-        public String toString() {
-            String str = "[";
-            Node position = head;
-
-            if (head == null) {
-                str += "";
-            } else {
-                while (position != null) {
-
-                    str += position.data;
-                    position = position.next;
-                    str += ", ";
-                }
-                str = str.substring(0, str.length() - 2);
-
-            }
-            str += "]";
-            return str;
         }
     }
 }

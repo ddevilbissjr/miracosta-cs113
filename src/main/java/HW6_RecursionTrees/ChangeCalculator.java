@@ -17,7 +17,7 @@ import java.io.File;
  */
 public class ChangeCalculator {
 
-    static ArrayList<Coin> coins = new ArrayList<Coin>();
+    static ArrayList<Coin> combinations = new ArrayList<Coin>();
 
     public static void main (String[] args) {
         printCombinationsToFile(80);
@@ -41,10 +41,10 @@ public class ChangeCalculator {
 
     public static int calculateChange(int cents, Coin coin) {
         if (cents == 0) {
-            if (coins.contains(coin)) {
+            if (combinations.contains(coin)) {
                 return 0;
             } else {
-                coins.add(coin);
+                combinations.add(coin);
                 return 1;
             }
         }
@@ -92,7 +92,7 @@ public class ChangeCalculator {
             File file = new File(fileName);
             FileWriter fileWriter = new FileWriter(file);
 
-            for (Coin coin : coins) {
+            for (Coin coin : combinations) {
                 fileWriter.write(coin.toString());
             }
             fileWriter.close();
